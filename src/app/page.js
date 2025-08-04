@@ -16,7 +16,7 @@ export default function Dashboard() {
 				<MetricCard title="Users" value="8,932" icon={<Users />} />
 				<MetricCard
 					title="Conversions"
-					value="1,230"
+					value="1,235"
 					icon={<MousePointerClick />}
 				/>
 				<MetricCard title="Growth" value="+12.5%" icon={<TrendingUp />} />
