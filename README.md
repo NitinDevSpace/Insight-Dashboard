@@ -1,5 +1,3 @@
-
-
 # ADmyBRAND Insights
 
 An AI-powered analytics dashboard designed for digital marketing agencies. Built with **Next.js 14 App Router**, **Tailwind CSS**, and **Recharts**, this project showcases a modern, responsive UI with dynamic charts, exportable data, and smooth user interactions.
@@ -26,6 +24,21 @@ An AI-powered analytics dashboard designed for digital marketing agencies. Built
 - 📱 **Fully Responsive Design**  
   Mobile-friendly layout and components using Tailwind’s utility-first classes
 
+- 📌 **Sticky Sidebar with Responsive Toggle**  
+  Persistent sidebar that adapts to screen size with smooth animations
+
+- 🎨 **Sidebar Animation with Context-based Visibility in Mobile**  
+  Context-driven sidebar show/hide behavior for enhanced UX on mobile devices
+
+- 🌗 **Improved Dark/Light Theme Support**  
+  Enhanced theming across charts and layout elements for consistent appearance
+
+- 🍩 **Updated Traffic Source Donut Chart**  
+  Themed labels with smooth hover tooltips for better data clarity
+
+- 🗃️ **Scrollable and Responsive User Data Table**  
+  Optimized table design for seamless scrolling and adaptability on all devices
+
 ---
 
 ## 🛠️ Tech Stack
@@ -35,6 +48,7 @@ An AI-powered analytics dashboard designed for digital marketing agencies. Built
 - **Components:** shadcn/ui
 - **Charts:** Recharts
 - **Data Export:** PapaParse (CSV), jsPDF (PDF)
+- **State Management:** React Context API
 
 ---
 
@@ -54,7 +68,7 @@ Then open [http://localhost:3000](http://localhost:3000)
 ## 🔄 Live Demo
 
 Deployed on Vercel  
-🔗 [https://admybrand-insights.vercel.app](https://admybrand-insights.vercel.app)
+🔗 [https://admybrand-insights-one.vercel.app](https://admybrand-insights-one.vercel.app)
 
 ---
 
@@ -64,16 +78,3 @@ See [`AI_REPORT.md`](./AI_REPORT.md) for full breakdown of AI-assisted contribut
 
 ---
 
-## 📸 Screenshots
-
-_Add screenshots of your dashboard, dark/light toggle, charts, and export buttons here if required._
-
----
-
-## 🧠 Inspired by
-
-Design systems and UX patterns inspired by:
-
-- Notion
-- Linear
-- Vercel Dashboard# Insight-Dashboard

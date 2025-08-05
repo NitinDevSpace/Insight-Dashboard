@@ -1,6 +1,3 @@
-
-
-
 ## AI Tools Used
 
 - Primary tools: ChatGPT (OpenAI)
@@ -10,6 +7,10 @@
   - Implementing skeleton loaders and pagination logic
   - Generating export functions using jsPDF and PapaParse
   - Writing README and AI usage report documentation
+  - Creating context-based sidebar logic
+  - Building animated, sticky sidebar with responsive behavior
+  - Fixing chart overflow and adapting visuals to theme changes
+  - Designing mobile scroll behavior and table responsiveness
 
 ---
 
@@ -23,11 +24,11 @@
 
 ## AI vs Manual Work Split
 
-- **AI-generated (60%)**
-  - Initial chart structure, export logic, skeleton loading patterns, Tailwind layout examples
+- **AI-generated (70%)**
+  - Initial chart structure, export logic, skeleton loading patterns, Tailwind layout examples, layout, context setup, sidebar behavior
 
-- **Manual Coding (40%)**
-  - Styling refinement, data wiring, UI responsiveness, state management, real-time integration
+- **Manual Coding (30%)**
+  - Styling refinement, data wiring, UI responsiveness, state management, real-time integration, tuning and debugging, theme coordination, edge case handling
   
 - **Customization**
   - All AI-generated snippets were iteratively reviewed, adapted, styled, and aligned with submission requirements and personal design goals.
