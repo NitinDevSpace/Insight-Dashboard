@@ -1,24 +1,43 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import usersData from "@/lib/mockUsers";
 import Papa from "papaparse";
 import jsPDF from "jspdf";
 import autoTable from "jspdf-autotable";
 
 
 export default function UsersPage() {
+	const [usersData, setUsersData] = useState([]);
 	const [search, setSearch] = useState("");
 	const [sortBy, setSortBy] = useState("name");
 	const [currentPage, setCurrentPage] = useState(1);
 	const [loading, setLoading] = useState(true);
 
 	useEffect(() => {
-	  const timeout = setTimeout(() => setLoading(false), 1200);
-	  return () => clearTimeout(timeout);
+	  async function fetchUsers() {
+	    setLoading(true);
+	    try {
+	      const res = await fetch("https://randomuser.me/api/?results=1100");
+	      const data = await res.json();
+	      const formatted = data.results.map((user, idx) => ({
+	        id: idx,
+	        name: `${user.name.first} ${user.name.last}`,
+	        email: user.email,
+	        joined: new Date(user.registered.date).toISOString().split("T")[0],
+	        status: Math.random() > 0.5 ? "active" : "inactive",
+	      }));
+	      setUsersData(formatted);
+	    } catch (err) {
+	      console.error("Failed to fetch users:", err);
+	    } finally {
+	      setLoading(false);
+	    }
+	  }
+
+	  fetchUsers();
 	}, []);
 
-	const rowsPerPage = 5;
+	const rowsPerPage = 20;
 	const filtered = usersData
 		.filter(
 			(u) =>
