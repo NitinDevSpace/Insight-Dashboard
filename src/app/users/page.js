@@ -87,7 +87,7 @@ export default function UsersPage() {
 					setSearch(e.target.value);
 					setCurrentPage(1);
 				}}
-				className="border border-gray-300 px-3 py-2 rounded-md mb-4 w-full max-w-sm"
+				className="border border-black/20 dark:border-gray-600 px-3 py-2 rounded-md mb-4 w-full max-w-sm"
 			/>
 
 			<div className="flex gap-4 mb-4">
@@ -113,7 +113,7 @@ export default function UsersPage() {
 								key={col}
 								onClick={() => setSortBy(col)}
 								className={`px-4 py-2 text-left cursor-pointer hover:underline text-sm truncate ${
-								  col === "joined" ? "hidden sm:table-cell" : ""
+									col === "joined" ? "hidden sm:table-cell" : ""
 								}`}
 							>
 								{col.charAt(0).toUpperCase() + col.slice(1)}
@@ -122,31 +122,42 @@ export default function UsersPage() {
 					</tr>
 				</thead>
 				<tbody>
-				  {loading
-				    ? Array.from({ length: 5 }).map((_, i) => (
-				        <tr key={i} className="border-t animate-pulse">
-				          <td className="px-4 py-2 text-sm truncate">
-				            <div className="h-4 bg-gray-200 dark:bg-gray-700 rounded w-3/4" />
-				          </td>
-				          <td className="px-4 py-2 text-sm truncate">
-				            <div className="h-4 bg-gray-200 dark:bg-gray-700 rounded w-2/3" />
-				          </td>
-				          <td className="px-4 py-2 text-sm truncate hidden sm:table-cell">
-				            <div className="h-4 bg-gray-200 dark:bg-gray-700 rounded w-1/2" />
-				          </td>
-				          <td className="px-4 py-2 text-sm truncate">
-				            <div className="h-4 bg-gray-200 dark:bg-gray-700 rounded w-1/3" />
-				          </td>
-				        </tr>
-				      ))
-				    : paginated.map((user) => (
-				        <tr key={user.id} className="border-t text-gray-900 bg-white hover:bg-gray-50 dark:text-white dark:bg-gray-900 dark:hover:bg-gray-700 transition">
-				          <td className="px-4 py-2 border-gray-200 dark:border-gray-700 text-sm truncate max-w-[100px] sm:max-w-[150px]">{user.name}</td>
-				          <td className="px-4 py-2 border-gray-200 dark:border-gray-700 text-sm truncate max-w-[100px] sm:max-w-[150px]">{user.email}</td>
-				          <td className="px-4 py-2 border-gray-200 dark:border-gray-700 text-sm truncate max-w-[100px] sm:max-w-[150px] hidden sm:table-cell">{user.joined}</td>
-				          <td className="px-4 py-2 border-gray-200 dark:border-gray-700 text-sm truncate max-w-[100px] sm:max-w-[150px]">{user.status}</td>
-				        </tr>
-				      ))}
+					{loading
+						? Array.from({ length: 5 }).map((_, i) => (
+								<tr key={i} className="border-t animate-pulse">
+									<td className="px-4 py-2 text-sm truncate">
+										<div className="h-4 bg-gray-200 dark:bg-gray-700 rounded w-3/4" />
+									</td>
+									<td className="px-4 py-2 text-sm truncate">
+										<div className="h-4 bg-gray-200 dark:bg-gray-700 rounded w-2/3" />
+									</td>
+									<td className="px-4 py-2 text-sm truncate hidden sm:table-cell">
+										<div className="h-4 bg-gray-200 dark:bg-gray-700 rounded w-1/2" />
+									</td>
+									<td className="px-4 py-2 text-sm truncate">
+										<div className="h-4 bg-gray-200 dark:bg-gray-700 rounded w-1/3" />
+									</td>
+								</tr>
+						  ))
+						: paginated.map((user) => (
+								<tr
+									key={user.id}
+									className="border-t  border-black/20 dark:border-gray-600 text-gray-900 bg-white hover:bg-gray-50 dark:text-white dark:bg-gray-900 dark:hover:bg-gray-700 transition"
+								>
+									<td className="px-4 py-2 border-gray-200 dark:border-gray-700 text-sm truncate max-w-[100px] sm:max-w-[150px]">
+										{user.name}
+									</td>
+									<td className="px-4 py-2 border-gray-200 dark:border-gray-700 text-sm truncate max-w-[100px] sm:max-w-[150px]">
+										{user.email}
+									</td>
+									<td className="px-4 py-2 border-gray-200 dark:border-gray-700 text-sm truncate max-w-[100px] sm:max-w-[150px] hidden sm:table-cell">
+										{user.joined}
+									</td>
+									<td className="px-4 py-2 border-gray-200 dark:border-gray-700 text-sm truncate max-w-[100px] sm:max-w-[150px]">
+										{user.status}
+									</td>
+								</tr>
+						  ))}
 				</tbody>
 			</table>
 

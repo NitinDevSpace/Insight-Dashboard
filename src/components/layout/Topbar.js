@@ -13,7 +13,7 @@ export default function Topbar({ onToggleSidebar }) {
 	if (!mounted) return null;
 
 	return (
-		<header className="flex items-center justify-between p-4 border-b bg-white text-gray-900 dark:bg-gray-900 dark:text-white sticky top-0 z-50">
+		<header className="flex border-b border-black/20 dark:border-gray-600 items-center justify-between p-4 border-b bg-white text-gray-900 dark:bg-gray-900 dark:text-white sticky top-0 z-50">
 			<div className="flex items-center space-x-4">
 				<button
 					className="md:hidden p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-800"

@@ -13,7 +13,7 @@ export default function Sidebar({ isOpen, onClose }) {
 	const pathname = usePathname();
 	return (
 		<aside
-			className={`md:sticky md:top-0 fixed top-0 left-0 h-screen w-64 p-6 bg-white text-gray-900 dark:bg-gray-900 dark:text-white transition-transform duration-300 z-40 ${
+			className={`md:sticky md:top-0 border-r border-black/20 dark:border-gray-600 fixed top-0 left-0 h-screen w-64 p-6 bg-white text-gray-900 dark:bg-gray-900 dark:text-white transition-transform duration-300 z-40 ${
 				isOpen ? "translate-x-0" : "-translate-x-full"
 			} md:translate-x-0 md:block`}
 		>

@@ -55,16 +55,14 @@ export default function Dashboard() {
 					<div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
 						<LineChartCard />
 						<BarChartCard />
-						<DonutChartCard />
+						<DonutChartCard  />
 					</div>
 
-					
-							<div className="w-full overflow-x-auto">
-								<div className="min-w-full max-w-full">
-									<UsersPage />
-								</div>
-							</div>
-						
+					<div className="w-full overflow-x-auto mt-12 pt-12 border-t-2  border-black/20 dark:border-gray-600">
+						<div className="min-w-full max-w-full">
+							<UsersPage />
+						</div>
+					</div>
 				</>
 			)}
 		</section>

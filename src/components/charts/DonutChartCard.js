@@ -16,9 +16,9 @@ const COLORS = ["#6366f1", "#ec4899", "#22c55e", "#f59e0b"];
 
 export default function DonutChartCard() {
 	return (
-		<div className="bg-white dark:bg-gray-900 text-black dark:text-white rounded-xl p-6 shadow-sm w-full transition-colors">
+		<div className="bg-white border border-black/20 dark:border-gray-600 dark:bg-gray-900 text-black dark:text-white rounded-xl p-6 shadow-md w-full transition-colors">
 			<h2 className="text-lg font-semibold mb-4">Traffic Sources</h2>
-			<ResponsiveContainer width="100%" height={250}>
+			<ResponsiveContainer width="100%" height="90%">
 				<PieChart>
 					<Pie
 						data={data}
@@ -28,20 +28,30 @@ export default function DonutChartCard() {
 						cy="50%"
 						innerRadius={60}
 						outerRadius={90}
-						label={({ cx, cy, midAngle, innerRadius, outerRadius, percent, index }) => {
+						labelLine={false}
+						label={({
+							cx,
+							cy,
+							midAngle,
+							innerRadius,
+							outerRadius,
+							percent,
+							index,
+						}) => {
 							const RADIAN = Math.PI / 180;
 							const radius = innerRadius + (outerRadius - innerRadius) * 1.9;
 							const x = cx + radius * Math.cos(-midAngle * RADIAN);
 							const y = cy + radius * Math.sin(-midAngle * RADIAN);
 							const change = changeData[index];
 							const arrow = change > 0 ? "↑" : change < 0 ? "↓" : "–";
-							const changeColor = change > 0 ? "#22c55e" : change < 0 ? "#ef4444" : "#9ca3af";
+							const changeColor =
+								change > 0 ? "#22c55e" : change < 0 ? "#ef4444" : "#9ca3af";
 							return (
 								<g>
 									<text
 										x={x}
-										y={y - 10}
-										className="text-gray-900 dark:text-white"
+										y={y - 7}
+										className="text-gray-900  dark:text-white"
 										fill="currentColor"
 										textAnchor="middle"
 										dominantBaseline="central"
@@ -71,10 +81,17 @@ export default function DonutChartCard() {
 					<Tooltip
 						content={({ active, payload }) => {
 							if (active && payload && payload.length) {
-								const index = data.findIndex(item => item.name === payload[0].name);
+								const index = data.findIndex(
+									(item) => item.name === payload[0].name
+								);
 								const change = changeData[index];
 								const arrow = change > 0 ? "↑" : change < 0 ? "↓" : "–";
-								const changeColor = change > 0 ? "text-green-500" : change < 0 ? "text-red-500" : "text-gray-500";
+								const changeColor =
+									change > 0
+										? "text-green-500"
+										: change < 0
+										? "text-red-500"
+										: "text-gray-500";
 
 								return (
 									<div className="rounded-md bg-white dark:bg-gray-800 shadow p-2 text-sm">
