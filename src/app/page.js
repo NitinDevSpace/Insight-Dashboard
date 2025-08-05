@@ -58,9 +58,13 @@ export default function Dashboard() {
 						<DonutChartCard />
 					</div>
 
-					<div>
-						<UsersPage />
-					</div>
+					
+							<div className="w-full overflow-x-auto">
+								<div className="min-w-full max-w-full">
+									<UsersPage />
+								</div>
+							</div>
+						
 				</>
 			)}
 		</section>
