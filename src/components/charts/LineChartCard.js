@@ -40,7 +40,7 @@ export default function LineChartCard() {
 	}, []);
 
 	return (
-		<div className="bg-white border border-black/20 dark:border-gray-600 dark:bg-gray-900 text-black dark:text-white rounded-xl p-6 shadow-md w-full transition-colors">
+		<div className="bg-white border border-black/20 dark:border-gray-600 dark:bg-gray-800 text-black dark:text-white rounded-xl p-6 shadow-md w-full transition-colors">
 			<h2 className="text-lg font-semibold mb-4">Revenue Over Time</h2>
 			<ResponsiveContainer width="100%" height={250}>
 				<LineChart data={data}>

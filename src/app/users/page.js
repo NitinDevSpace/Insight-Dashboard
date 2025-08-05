@@ -106,7 +106,7 @@ export default function UsersPage() {
 			</div>
 
 			<table className="w-full border text-sm border-gray-200 dark:border-gray-700">
-				<thead className="bg-gray-100 dark:bg-gray-800 dark:text-white">
+				<thead className="bg-gray-200 dark:bg-gray-600 dark:text-white">
 					<tr>
 						{["name", "email", "joined", "status"].map((col) => (
 							<th
@@ -142,7 +142,7 @@ export default function UsersPage() {
 						: paginated.map((user) => (
 								<tr
 									key={user.id}
-									className="border-t  border-black/20 dark:border-gray-600 text-gray-900 bg-white hover:bg-gray-50 dark:text-white dark:bg-gray-900 dark:hover:bg-gray-700 transition"
+									className="border-t  border-black/20 dark:border-gray-600 text-gray-900 bg-white hover:bg-gray-300 dark:text-white dark:bg-gray-800 dark:hover:bg-gray-600 transition"
 								>
 									<td className="px-4 py-2 border-gray-200 dark:border-gray-700 text-sm truncate max-w-[100px] sm:max-w-[150px]">
 										{user.name}
