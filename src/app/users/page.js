@@ -5,7 +5,6 @@ import Papa from "papaparse";
 import jsPDF from "jspdf";
 import autoTable from "jspdf-autotable";
 
-
 export default function UsersPage() {
 	const [usersData, setUsersData] = useState([]);
 	const [search, setSearch] = useState("");
@@ -106,8 +105,8 @@ export default function UsersPage() {
 				</button>
 			</div>
 
-			<table className="w-full border text-sm">
-				<thead className="bg-gray-100">
+			<table className="w-full border text-sm border-gray-200 dark:border-gray-700">
+				<thead className="bg-gray-100 dark:bg-gray-800 dark:text-white">
 					<tr>
 						{["name", "email", "joined", "status"].map((col) => (
 							<th
@@ -125,25 +124,25 @@ export default function UsersPage() {
 				    ? Array.from({ length: 5 }).map((_, i) => (
 				        <tr key={i} className="border-t animate-pulse">
 				          <td className="px-4 py-2">
-				            <div className="h-4 bg-gray-200 rounded w-3/4" />
+				            <div className="h-4 bg-gray-200 dark:bg-gray-700 rounded w-3/4" />
 				          </td>
 				          <td className="px-4 py-2">
-				            <div className="h-4 bg-gray-200 rounded w-2/3" />
+				            <div className="h-4 bg-gray-200 dark:bg-gray-700 rounded w-2/3" />
 				          </td>
 				          <td className="px-4 py-2">
-				            <div className="h-4 bg-gray-200 rounded w-1/2" />
+				            <div className="h-4 bg-gray-200 dark:bg-gray-700 rounded w-1/2" />
 				          </td>
 				          <td className="px-4 py-2">
-				            <div className="h-4 bg-gray-200 rounded w-1/3" />
+				            <div className="h-4 bg-gray-200 dark:bg-gray-700 rounded w-1/3" />
 				          </td>
 				        </tr>
 				      ))
 				    : paginated.map((user) => (
-				        <tr key={user.id} className="border-t hover:bg-gray-50 transition">
-				          <td className="px-4 py-2">{user.name}</td>
-				          <td className="px-4 py-2">{user.email}</td>
-				          <td className="px-4 py-2">{user.joined}</td>
-				          <td className="px-4 py-2">{user.status}</td>
+				        <tr key={user.id} className="border-t text-gray-900 bg-white hover:bg-gray-50 dark:text-white dark:bg-gray-900 dark:hover:bg-gray-700 transition">
+				          <td className="px-4 py-2 border-gray-200 dark:border-gray-700">{user.name}</td>
+				          <td className="px-4 py-2 border-gray-200 dark:border-gray-700">{user.email}</td>
+				          <td className="px-4 py-2 border-gray-200 dark:border-gray-700">{user.joined}</td>
+				          <td className="px-4 py-2 border-gray-200 dark:border-gray-700">{user.status}</td>
 				        </tr>
 				      ))}
 				</tbody>

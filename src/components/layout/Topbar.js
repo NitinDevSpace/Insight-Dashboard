@@ -13,7 +13,7 @@ export default function Topbar() {
 	if (!mounted) return null;
 
 	return (
-		<header className="flex items-center justify-between p-4 border-b bg-white dark:bg-gray-900 sticky top-0 z-50">
+		<header className="flex items-center justify-between p-4 border-b bg-white text-gray-900 dark:bg-gray-900 dark:text-white sticky top-0 z-50">
 			<h2 className="text-lg font-semibold">Dashboard</h2>
 			<button
 				onClick={() => setTheme(theme === "light" ? "dark" : "light")}

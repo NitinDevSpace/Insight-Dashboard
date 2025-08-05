@@ -21,7 +21,7 @@ const data = [
 
 export default function BarChartCard() {
 	return (
-		<div className="bg-white rounded-xl p-6 shadow-sm w-full">
+		<div className="bg-white dark:bg-gray-900 text-black dark:text-white rounded-xl p-6 shadow-sm w-full transition-colors">
 			<h2 className="text-lg font-semibold mb-4">Monthly Active Users</h2>
 			<ResponsiveContainer width="100%" height={250}>
 				<BarChart data={data}>

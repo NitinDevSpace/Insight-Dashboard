@@ -8,14 +8,14 @@ const navItems = [
 
 export default function Sidebar() {
 	return (
-		<aside className="w-64 min-h-screen bg-gray-900 text-white p-6 hidden md:block">
+		<aside className="w-64 min-h-screen bg-white text-gray-900 dark:bg-gray-900 dark:text-white p-6 hidden md:block">
 			<h1 className="text-xl font-bold mb-8">ADmyBRAND</h1>
 			<nav className="space-y-4">
 				{navItems.map((item) => (
 					<a
 						key={item.label}
 						href={item.href}
-						className="flex items-center space-x-2 hover:bg-gray-800 px-3 py-2 rounded-md transition"
+						className="flex items-center space-x-2 hover:bg-gray-100 dark:hover:bg-gray-800 px-3 py-2 rounded-md transition"
 					>
 						{item.icon}
 						<span>{item.label}</span>
