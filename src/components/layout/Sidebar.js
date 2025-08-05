@@ -15,7 +15,7 @@ export default function Sidebar() {
 	const pathname = usePathname();
 	return (
 		<aside
-			className={`z-50 transition-transform duration-300 fixed top-0 left-0 h-screen w-64 p-6 bg-white text-gray-900 dark:bg-gray-900 dark:text-white border-r border-black/20 dark:border-gray-600 ${
+			className={`z-50 transition-transform duration-300 fixed md:sticky md:top-0 md:h-screen md:translate-x-0 top-0 left-0 h-screen w-64 p-6 bg-white text-gray-900 dark:bg-gray-900 dark:text-white border-r border-black/20 dark:border-gray-600 ${
 				isSidebarOpen ? "translate-x-0" : "-translate-x-full"
 			}`}
 		>
