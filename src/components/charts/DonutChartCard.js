@@ -9,6 +9,9 @@ const data = [
 	{ name: "Social", value: 200 },
 ];
 
+// Example change data for each traffic source (positive, negative, neutral)
+const changeData = [5, -2, 0, 3];
+
 const COLORS = ["#6366f1", "#ec4899", "#22c55e", "#f59e0b"];
 
 export default function DonutChartCard() {
@@ -25,12 +28,69 @@ export default function DonutChartCard() {
 						cy="50%"
 						innerRadius={60}
 						outerRadius={90}
+						label={({ cx, cy, midAngle, innerRadius, outerRadius, percent, index }) => {
+							const RADIAN = Math.PI / 180;
+							const radius = innerRadius + (outerRadius - innerRadius) * 1.9;
+							const x = cx + radius * Math.cos(-midAngle * RADIAN);
+							const y = cy + radius * Math.sin(-midAngle * RADIAN);
+							const change = changeData[index];
+							const arrow = change > 0 ? "↑" : change < 0 ? "↓" : "–";
+							const changeColor = change > 0 ? "#22c55e" : change < 0 ? "#ef4444" : "#9ca3af";
+							return (
+								<g>
+									<text
+										x={x}
+										y={y - 10}
+										className="text-gray-900 dark:text-white"
+										fill="currentColor"
+										textAnchor="middle"
+										dominantBaseline="central"
+										fontSize={12}
+									>
+										{data[index].name}
+									</text>
+									<text
+										x={x}
+										y={y + 14}
+										className="text-gray-500 dark:text-gray-300"
+										fill="currentColor"
+										textAnchor="middle"
+										dominantBaseline="central"
+										fontSize={11}
+									>
+										{`${(percent * 100).toFixed(1)}%`}
+									</text>
+								</g>
+							);
+						}}
 					>
 						{data.map((entry, index) => (
 							<Cell key={`cell-${index}`} fill={COLORS[index]} />
 						))}
 					</Pie>
-					<Tooltip />
+					<Tooltip
+						content={({ active, payload }) => {
+							if (active && payload && payload.length) {
+								const index = data.findIndex(item => item.name === payload[0].name);
+								const change = changeData[index];
+								const arrow = change > 0 ? "↑" : change < 0 ? "↓" : "–";
+								const changeColor = change > 0 ? "text-green-500" : change < 0 ? "text-red-500" : "text-gray-500";
+
+								return (
+									<div className="rounded-md bg-white dark:bg-gray-800 shadow p-2 text-sm">
+										<p className="font-medium">{payload[0].name}</p>
+										<p className="text-gray-600 dark:text-gray-300">
+											Value: {payload[0].value}
+										</p>
+										<p className={changeColor}>
+											Change: {arrow} {Math.abs(change)}%
+										</p>
+									</div>
+								);
+							}
+							return null;
+						}}
+					/>
 				</PieChart>
 			</ResponsiveContainer>
 		</div>
